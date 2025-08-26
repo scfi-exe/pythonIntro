@@ -1,5 +1,10 @@
 import random
 
+# the goal is to create a ROCK, PAPER, SCISSORS game.
+# the player will input either rock, paper, or scissors
+# the score of points between the player and the CPU will be tracked
+# the game will be played until the user decides to quit
+
 
 def start():
     print("Welcome to ROCK, PAPER, SCISSORS!")
