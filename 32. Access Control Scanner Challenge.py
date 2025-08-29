@@ -22,6 +22,7 @@ while True:
 
     if visitorName.lower() == "done":
         approved.sort()
+        denied.sort()
         print(
             f"=== END OF DAY REPORT ===\nThere were {len(approved)} approved visitors today.\nThere were {len(denied)} denied visitors today"
         )
@@ -33,7 +34,7 @@ while True:
             print(f"{visitor[0]}. {visitor[1].title()}")
         break
     else:
-        badgeNumber = int(input("What is your badge number? "))
+        badgeNumber = int(input("What is your badge number? ").strip())
         for i in revokedBadgeNumbers:
             if badgeNumber == i:
                 print("ACCESS DENIED")
