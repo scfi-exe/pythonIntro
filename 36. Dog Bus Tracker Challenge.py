@@ -70,7 +70,10 @@ for seat, dog in bus.items():
         print(f"{dog.get("name")} has headed home early.")
         break
 
-bus.pop(seatToRemove)
+if seatToRemove:
+    bus.pop(seatToRemove)
+else:
+    print(f"WARNING: No passenger named {earlyLeaver} is on the bus.")
 
 # 5. Print a final roster listing the remaining pets and their dropoff times.
 
