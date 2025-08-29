@@ -10,7 +10,7 @@
 
 while True:
     number = input("Please enter in a phone number to format: ")
-
+    # commented out inefficient code
     # number = number.replace("-", "")
     # number = number.replace(",", "")
     # number = number.replace(".", "")
@@ -22,6 +22,7 @@ while True:
 
     if len(number) == 10:
         print(f"({number[:3]}) {number[3:6]}-{number[6:]}")
+        # commented out inefficient code
         # number = number[:0] + "(" + number[0:]
         # number = number[:4] + ")" + number[4:]
         # number = number[:5] + " " + number[5:]
