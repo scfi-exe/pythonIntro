@@ -10,36 +10,44 @@
 
 
 class Pizza:
-    def __init__(self, size, crustType, toppingsList):
+    def __init__(self, size, crustType, toppingsList=None):
         self.size = size
         self.crustType = crustType
-        self.toppingsList = toppingsList
+        self.toppingsList = toppingsList if toppingsList else []
 
-    def addTopping(self):
-        newTopping = input(
-            "What topping would you like to add to your pizza?: "
-        ).title()
-        self.toppingsList.append(newTopping)
-        pass
+    def addTopping(self, topping):
+        self.toppingsList.append(topping)
 
-    def removeTopping(self):
-        removedTopping = input("What topping would you like to remove?")
-        if removedTopping in self.toppingsList:
-            self.toppingsList.remove(removedTopping)
+    def removeTopping(self, topping):
+        if topping in self.toppingsList:
+            self.toppingsList.remove(topping)
         else:
             print("Could not find that topping.")
 
     def nicePrint(self):
-        print(
-            f"Pizza Size: {self.size}\nCrust Type: {self.crustType}\nToppings List: {self.toppingsList}"
-        )
+        print(f"Pizza Size:\n  - {self.size}\nCrust Type:\n  - {self.crustType}")
+        if self.toppingsList:
+            print("Toppings: ")
+            for topping in self.toppingsList:
+                print(f"  - {topping.title()}")
+        else:
+            print("Toppings: None")
 
 
-pizza1 = Pizza("Small", "Garlic Parmesan", ["Cheese", "Sauce"])
-
-pizza1.addTopping()
-pizza1.removeTopping()
-pizza1.nicePrint()
-
+myPizza = Pizza("Large", "Brooklyn Style")
+myPizza.addTopping("Pepperoni")
+myPizza.addTopping("Cheese")
+myPizza.addTopping("Red Sauce")
+print("=== MY PIZZA ===")
+myPizza.nicePrint()
 # print(dir(list))
 # print(help)
+
+
+# secondpizza
+friendPizza = Pizza(
+    "Medium", "Deep Dish", ["Cheese", "Red Sauce", "Bacon", "Pepperoni"]
+)
+friendPizza.addTopping("Salami")
+print("=== FRIEND PIZZA ===")
+friendPizza.nicePrint()
