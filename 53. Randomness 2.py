@@ -18,3 +18,7 @@ for i in range(7):
     word = word + random.choice(lettersNumbers)
 
 print(word)
+
+
+word = random.choices(lettersNumbers, k=7)
+print(f"Using random.choices, your password is: {word}")
