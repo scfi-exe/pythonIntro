@@ -16,7 +16,7 @@ participants = []
 while True:
 
     name = input(
-        f"Thanks for entering the raffle! What is your name? (type DONE to exit): "
+        f"Thanks for entering the raffle! What is your name? (type DONE to exit this loop): "
     )
     if name.lower() == "done" and len(participants) < 3:
         print(
@@ -41,6 +41,7 @@ for i in range(3):
 winners = random.sample(participants, 3)
 
 # enumerate over the winners list -> we are able to do "i, winner" because of "enumerate(winner)", otherwise we would get an error
+print("=== RAFFLE RESULTS ===")
 for i, winner in enumerate(winners):
     if i == 0:
         print(f"{i+1}. {winner} has won the grand prize: {prizeList[i]}!")
