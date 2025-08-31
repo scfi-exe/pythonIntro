@@ -11,6 +11,8 @@ while True:
         passRange = int(
             input("How many characters would you like your password to be? (5 to 30): ")
         )
+        if passRange < 5 or passRange > 30:
+            raise ValueError(passRange)
         # generate password
         password = ""
         for i in range(passRange):
@@ -19,8 +21,7 @@ while True:
         print(f"Your new password is: {password}")
 
         # raise error if an invalid value is input for passRange
-        if passRange < 5 or passRange > 30:
-            raise ValueError(passRange)
+
         break
     except ValueError as err:
         print(f"{err}: Bad Value! Please enter an integer between 5 and 30")
