@@ -23,3 +23,13 @@ def enigmaLight():
 
 
 print(enigmaLight())
+
+while True:
+    restart = input(
+        "Input Y to run the program again. Press any other key to exit the program: "
+    )
+    if restart == "Y":
+        print(enigmaLight())
+    else:
+        print("Have a good day.")
+        break
