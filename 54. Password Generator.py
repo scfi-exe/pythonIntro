@@ -7,27 +7,20 @@ lettersNumbers = string.ascii_letters + string.digits
 
 
 while True:
-    passRange = int(
-        input("How many characters would you like your password to be? (5 to 30): ")
-    )
-    if passRange >= 5 and passRange <= 30:
+    try:
+        passRange = int(
+            input("How many characters would you like your password to be? (5 to 30): ")
+        )
         # generate password
         password = ""
         for i in range(passRange):
             password = password + random.choice(lettersNumbers)
 
         print(f"Your new password is: {password}")
+
+        # raise error if an invalid value is input for passRange
+        if passRange < 5 or passRange > 30:
+            raise ValueError(passRange)
         break
-    elif passRange < 5:
-        print(
-            "ERROR: Too few characters provided. Please input between 5 and 30 characters."
-        )
-        pass
-    elif passRange > 30:
-        print(
-            "ERROR: Too many characters provided. Please input between 5 and 30 characters.\n"
-        )
-    elif type(passRange) == float:
-        print("VALUE ERROR: Please input an integer value.")
-    else:
-        print("VALUE ERROR: Please input an integer value.")
+    except ValueError as err:
+        print(f"{err}: Bad Value! Please enter an integer between 5 and 30")
