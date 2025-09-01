@@ -6,7 +6,7 @@ pulls = [random.choice(bag) for _ in range(10000)]
 print("Green: ", pulls.count("green"))
 print("Red: ", pulls.count("red"))
 
-
+# testing red, green, orange, and black pulls over 10000 simulations
 bag2 = [
     "green",
     "green",
