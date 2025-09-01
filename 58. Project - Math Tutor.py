@@ -11,6 +11,8 @@ upperRange = int(input("What should the upper range of numbers be?: "))
 playerScore = 0
 totalTime = 0.0
 
+answerList = []
+
 # loop through number of questions
 for question in range(numQuestions):
     # create two random numbers and calc answer
@@ -21,20 +23,25 @@ for question in range(numQuestions):
     # bonus #1: capture time between user inputs
     startTime = time.perf_counter()
     userAnswer = int(input(f"What is {numA} * {numB} = "))
+    answerList.append(
+        f"{numA} * {numB} = {correctAnswer} --> You guessed: {userAnswer}"
+    )
     endTime = time.perf_counter()
     timeTaken = round((endTime - startTime), 2)
-    totalTime = totalTime + timeTaken
+    totalTime = round((totalTime + timeTaken), 2)
     # capture answer and modify user score
     if userAnswer == correctAnswer:
         playerScore = playerScore + 1
-        print(
-            f"You are correct! You took {timeTaken} seconds to answer. Time for your next question...\n"
-        )
+        print(f"You are correct! You took {timeTaken} seconds to answer.\n")
     else:
         print(
             f"Sorry, that answer is incorrect. The correct answer was {correctAnswer}. Better luck next time!\n"
         )
 # output final score
 print(
-    f"Your final score is: {playerScore} out of {numQuestions} correct!\nYou took {totalTime} seconds to answer all {numQuestions} questions."
+    f"Your final score is: {playerScore} out of {numQuestions} correct!\nYou took {totalTime} seconds to answer all {numQuestions} questions, which is {totalTime/numQuestions} seconds per question!"
 )
+
+# bonus #3: print all of the questions and answers
+for answer in answerList:
+    print(answer)
